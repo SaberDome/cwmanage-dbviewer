@@ -1,10 +1,11 @@
 <?php
 session_start();
 
-$serverName = $_SESSION['hostname'] ?? null;
-$database = $_SESSION['dbname'] ?? null;
-$username = $_SESSION['username'] ?? null;
-$password = $_SESSION['password'] ?? null;
+// Prefer environment variables over session-based login form
+$serverName = getenv('DB_HOST') ?: ($_SESSION['hostname'] ?? '');
+$database   = getenv('DB_NAME') ?: ($_SESSION['dbname'] ?? '');
+$username   = getenv('DB_USER') ?: ($_SESSION['username'] ?? '');
+$password   = getenv('DB_PASS') ?: ($_SESSION['password'] ?? '');
 $ignoreTrust = $_SESSION['ignore_trust'] === 'on' ?? false;
 
 // Ensure `$ignoreTrust` is a proper boolean
