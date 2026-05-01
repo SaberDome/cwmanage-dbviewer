@@ -6,9 +6,6 @@ $serverName = getenv('DB_HOST') ?: ($_SESSION['hostname'] ?? '');
 $database   = getenv('DB_NAME') ?: ($_SESSION['dbname'] ?? '');
 $username   = getenv('DB_USER') ?: ($_SESSION['username'] ?? '');
 $password   = getenv('DB_PASS') ?: ($_SESSION['password'] ?? '');
-$ignoreTrust = $_SESSION['ignore_trust'] === 'on' ?? false;
-
-// Ensure `$ignoreTrust` is a proper boolean
 $isIgnoreTrust = getenv('DB_IGNORE_TRUST') ?: ($_SESSION['ignore_trust'] ?? 'true');
 
 $isDbConnected = false;
