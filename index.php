@@ -9,7 +9,7 @@ $password   = getenv('DB_PASS') ?: ($_SESSION['password'] ?? '');
 $ignoreTrust = $_SESSION['ignore_trust'] === 'on' ?? false;
 
 // Ensure `$ignoreTrust` is a proper boolean
-$isIgnoreTrust = filter_var($ignoreTrust, FILTER_VALIDATE_BOOLEAN);
+$isIgnoreTrust = getenv('DB_IGNORE_TRUST') ?: ($_SESSION['ignore_trust'] ?? 'true');
 
 $isDbConnected = false;
 // Read the error message from the query parameter if there is one.
