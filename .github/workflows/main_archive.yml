@@ -1,4 +1,4 @@
-name: Build and deploy PHP app to Azure Web App - cwviewer
+name: Build and deploy PHP app to Azure Web App - archive
 
 on:
   push:
